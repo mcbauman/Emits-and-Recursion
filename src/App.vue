@@ -3,6 +3,7 @@ import { ref } from "vue";
 import QRCodeVue3 from "qrcode-vue3"
 import MyComponent from "./MyComponent.vue";
 import BaseOutput from "./BaseOutput.vue"
+import BaseOutput2 from "./BaseOutput2.vue"
 
 let defaultVal = [
   {
@@ -17,7 +18,13 @@ let defaultVal = [
     child: "not yet"
   }
 ]
+//FOR ASIDE
+const structure = ref(defaultVal)
+const newValues=ref()
 
+
+
+//FOR MAIN
 const myVariable = ref();
 const myVar2=ref(defaultVal)
 const myVar3=ref()
@@ -36,6 +43,15 @@ function submitFunction(){
     World of Emits {{ myVariable }}
     <MyComponent @ChangeValue="(v) => (myVariable = v)" />
   </header>
+  
+  <aside>
+    <BaseOutput2 v-for="structureItem in structure" 
+      :structureItem="structureItem"
+      :inputValue="newValues"
+      v-model="newValues"
+    /> 
+  </aside>
+  
   <main>
     <BaseOutput v-for="value in myVar2" :inputValue="value" />
     <button @click="submitFunction">Store</button>
