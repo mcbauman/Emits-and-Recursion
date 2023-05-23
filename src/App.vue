@@ -44,13 +44,13 @@ function submitFunction(){
     <MyComponent @ChangeValue="(v) => (myVariable = v)" />
   </header>
   
-  <aside>
+  <!-- <aside>
     <BaseOutput2 v-for="structureItem in structure" 
       :structureItem="structureItem"
       :inputValue="newValues"
       v-model="newValues"
     /> 
-  </aside>
+  </aside> -->
   
   <main>
     <BaseOutput v-for="value in myVar2" :inputValue="value" />
